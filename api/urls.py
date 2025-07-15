@@ -8,4 +8,5 @@ router.register(r'glossary', glossary_views.GlossaryViewSet, basename='glossary'
 urlpatterns = [
     path('auth/login', auth_views.LoginView.as_view(), name='login'),
     path('', include(router.urls)),
+    path("auth/refresh", auth_views.CustomTokenRefreshView.as_view(), name="token_refresh"), 
 ]
