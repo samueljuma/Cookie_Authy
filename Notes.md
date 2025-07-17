@@ -7,3 +7,8 @@ touch .env # for environment variables
 pip install django djangorestframework psycopg2
 
 ```
+
+# Containerization with Docker
+```bash 
+docker init 
+```
