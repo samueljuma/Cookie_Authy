@@ -43,7 +43,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -57,12 +56,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://cookieauthy-production.up.railway.app"
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",  
-    "http://127.0.0.1:8000",
-    "https://cookieauthy-production.up.railway.app/",
-    "http://192.168.100.221:8000"
-]
 
 # For local development convenience:
 CORS_ALLOW_HEADERS = list(default_headers) + ["X-CSRFToken"]
@@ -159,4 +152,3 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
