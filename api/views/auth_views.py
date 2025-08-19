@@ -30,7 +30,7 @@ class LoginView(APIView):
             httponly=True, 
             secure=True, 
             samesite='None', 
-            expires=data['access_expires_at']
+            max_age=data['access_expires_at']
         )
         response.set_cookie(
             key='Refresh',
@@ -38,7 +38,7 @@ class LoginView(APIView):
             httponly=True, 
             secure=True, 
             samesite='None', 
-            expires=data['refresh_expires_at']
+            max_age=data['refresh_expires_at']
         )
 
         return response
