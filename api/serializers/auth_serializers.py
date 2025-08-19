@@ -30,13 +30,15 @@ class LoginSerializer(serializers.Serializer):
         refresh = RefreshToken.for_user(user)
         access = refresh.access_token
 
-        access_expiry = datetime.fromtimestamp(access['exp'], timezone.utc).isoformat()
-        refresh_expiry = datetime.fromtimestamp(refresh['exp'], timezone.utc).isoformat()
+        now_ts = datetime.now(timezone.utc).timestamp()
+
+        access_expiry_seconds = int(access['exp'] - now_ts)
+        refresh_expiry_seconds = int(refresh['exp'] - now_ts)
         
         return {
             'username': user.username,
             'refresh': str(refresh),
             'access': str(access),
-            'access_expires_at': access_expiry,
-            'refresh_expires_at': refresh_expiry
+            'access_expires_at': access_expiry_seconds,
+            'refresh_expires_at': refresh_expiry_seconds
         }
