@@ -77,8 +77,8 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),  # Access token expires in 1 day
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # Refresh token expires in 7 days
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),  # Access token expires in 1 day
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes =5),  # Refresh token expires in 7 days
     "ROTATE_REFRESH_TOKENS": False,  # Generates a new refresh token on each use if set to true
     "BLACKLIST_AFTER_ROTATION": True,  # Prevent reuse of old refresh tokens
     "ALGORITHM": "HS256",  # Default signing algorithm
